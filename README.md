@@ -5,4 +5,5 @@ O bootcamp está sendo realizado com o intuito de aprimorar meus conhecimentos n
 Estão organizados nas pastas os fundamentos da linguagem Javascript e projetos realizados durante o Bootcamp.
 
 - Javascript
+    - Foi utilizado o Node na versao 18.15.0 para execucao dos trechos de codigo 
 - Angular
