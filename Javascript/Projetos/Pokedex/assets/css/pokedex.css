@@ -84,6 +84,14 @@
     border-radius: .7rem;
     display: flex;
     flex-direction: column;
+    background-image: url('../img/card-bg.png');
+    background-size: 8rem;
+    background-repeat: no-repeat;
+    background-position: calc(95% + 20px) 140%;
+}
+
+li.pokemon{
+    cursor: pointer;
 }
 
 .pokemon .number{

@@ -1,27 +1,39 @@
 const pokemonList = document.getElementById('pokemonList')
 const loadMoreButton = document.getElementById('loadMoreButton')
+
 const limit = 10
 let offset = 0
 
 const maxRecords = 151
 
+function pokemonDetails(number){
+    console.log(number)
+}
+
 function loadPokemonItens(offset, limit){
     pokeApi.getPokemons(offset, limit).then((pokemons = []) => {    
-        pokemonList.innerHTML += pokemons.map((pokemon) => 
+        const pokemonsLi = pokemons.map((pokemon) => {
+            let li = document.createElement('li')
+            li.classList.add('pokemon', pokemon.type)
+            li.innerHTML = `
+                <span class="number">#${pokemon.number}</span>
+                <span class="name">${pokemon.name}</span>
+                <div class="detail">
+                    <ol class="types">
+                        ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
+                    </ol>
+                    <img src="${pokemon.photo}" alt="${pokemon.name}">
+                </div>
             `
-                <li class="pokemon ${pokemon.type}">
-                    <span class="number">#${pokemon.number}</span>
-                    <span class="name">${pokemon.name}</span>
-                    <div class="detail">
-                        <ol class="types">
-                            ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
-                        </ol>
-                        <img src="${pokemon.photo}" alt="${pokemon.name}">
-                    </div>
-                </li>
-            `
-        ).join('')
+            li.addEventListener('click', ()=>pokemonDetails(pokemon.number))
+
+            return li
+        }) 
+        
+        for(let pokemonLi of pokemonsLi)
+            pokemonList.appendChild(pokemonLi)       
      })
+     
 }
 
 loadPokemonItens(offset, limit)
@@ -36,7 +48,6 @@ loadMoreButton.addEventListener('click', () => {
 
         loadMoreButton.parentElement.removeChild(loadMoreButton)
     } else{
-        loadPokemonItens(offset, newLimit)
+        loadPokemonItens(offset, limit)
     }
-
 })
