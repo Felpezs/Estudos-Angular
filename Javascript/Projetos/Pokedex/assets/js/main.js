@@ -12,7 +12,7 @@ function pokemonDetails(number){
 
 function loadPokemonItens(offset, limit){
     pokeApi.getPokemons(offset, limit).then((pokemons = []) => {    
-        const pokemonsLi = pokemons.map((pokemon) => {
+        pokemonList.append(...pokemons.map((pokemon) => {
             let li = document.createElement('li')
             li.classList.add('pokemon', pokemon.type)
             li.innerHTML = `
@@ -28,10 +28,7 @@ function loadPokemonItens(offset, limit){
             li.addEventListener('click', ()=>pokemonDetails(pokemon.number))
 
             return li
-        }) 
-        
-        for(let pokemonLi of pokemonsLi)
-            pokemonList.appendChild(pokemonLi)       
+        }))  
      })
      
 }
