@@ -1,12 +1,12 @@
 const pokemonList = document.getElementById('pokemonList')
 const loadMoreButton = document.getElementById('loadMoreButton')
-
-const limit = 10
+const modalButton = document.getElementById('modal')
+const limit = 40
 let offset = 0
 
 const maxRecords = 151
 
-function pokemonDetails(number){
+function pokemonDetails(pokemon){
     console.log(number)
 }
 
@@ -25,7 +25,7 @@ function loadPokemonItens(offset, limit){
                     <img src="${pokemon.photo}" alt="${pokemon.name}">
                 </div>
             `
-            li.addEventListener('click', ()=>pokemonDetails(pokemon.number))
+            li.addEventListener('click', ()=>pokemonDetails(pokemon))
 
             return li
         }))  

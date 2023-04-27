@@ -88,9 +88,6 @@
     background-size: 8rem;
     background-repeat: no-repeat;
     background-position: calc(95% + 20px) 140%;
-}
-
-li.pokemon{
     cursor: pointer;
 }
 
@@ -128,13 +125,23 @@ li.pokemon{
     margin: .25rem 0;
     font-size: .625rem;
     border-radius: 1rem;
-
 }
 
 .pokemon .detail img{
     border-style: none;
     max-width: 100%;
     height: 70px;
+}
+
+.pokemonOverview{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 1rem;
+    display: block;
+    width: 95%;
+    height: 500px;
 }
 
 .pagination {
@@ -169,11 +176,19 @@ li.pokemon{
     .pokemons{
         grid-template-columns: 1fr 1fr;
     }
+    .pokemonOverview{
+        width: 80%;
+        height: 60%;
+    }
 }
 
 @media screen and (min-width: 576px) {
     .pokemons{
         grid-template-columns: 1fr 1fr 1fr;
+    }
+    .pokemonOverview{
+        width: 400px;
+        height: 600px;
     }
 }
 
