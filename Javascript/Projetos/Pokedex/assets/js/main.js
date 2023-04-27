@@ -1,13 +1,17 @@
 const pokemonList = document.getElementById('pokemonList')
 const loadMoreButton = document.getElementById('loadMoreButton')
-const modalButton = document.getElementById('modal')
+const modal = document.getElementById('modal')
+const body = document.body
+
 const limit = 40
 let offset = 0
 
 const maxRecords = 151
 
 function pokemonDetails(pokemon){
-    console.log(number)
+    body.classList.add('disable-scroll')
+    modal.style.display = 'block'
+    return `<img src="${pokemon.photo}">`
 }
 
 function loadPokemonItens(offset, limit){
@@ -34,6 +38,13 @@ function loadPokemonItens(offset, limit){
 }
 
 loadPokemonItens(offset, limit)
+modal.addEventListener('click', (ev)=>{
+    if(ev.target == modal){
+        ev.target.style.display = 'none'
+        body.classList.remove('disable-scroll')
+    }
+})
+
 
 loadMoreButton.addEventListener('click', () => {
     offset += limit
