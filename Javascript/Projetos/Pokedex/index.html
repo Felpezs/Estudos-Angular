@@ -16,6 +16,8 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/assets/css/global.css"/>
     <link rel="stylesheet" href="/assets/css/pokedex.css"/>
+    <link rel="stylesheet" href="/assets/css/modal.css"/>
+    <link rel="stylesheet" href="/assets/css/media_queries.css"/>
 
     <title>Pokedex</title>
 </head>
@@ -36,19 +38,48 @@
                     <li class="type grass">grass</li>
                     <li class="type poison">poison</li>
                 </ol>
-            </div>
-            <div class="pokemonData">
                 <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/1.gif" alt="bulbasaur">
-                <div class="info">
-                    <nav class="infoNav">
-                        <ul>
-                            <li>About</li>
-                            <li>Base Stats</li>
-                            <li>Evolution Chain</li>
-                        </ul>
-                    </nav>
-                </div>
             </div>
+            <nav class="navInfo">
+                <ul>
+                    <li>About</li>
+                    <li>Stats</li>
+                    <li>Evolution</li>
+                </ul>
+            </nav>
+            <div id="pokemonData">
+                <span data-about>
+                    <div class="description">
+                        <p class="attributte">Base exp:</p>
+                        <p>24 exp</p>
+                    </div>
+                    <div class="description">
+                        <p class="attributte">Height:</p>
+                        <p>2.58m</p>
+                    </div>
+                    <div class="description">
+                        <p class="attributte">Weight:</p>
+                        <p>10kg</p>
+                    </div>
+                    <div class="description">
+                        <p class="attributte">Abilities:</p>
+                        <p>Overgrow, Chlorophyll</p>
+                    </div>
+                    <div class="description">
+                        <p class="attributte">Egg Groups:</p>
+                        <p>Monster, Plant</p>
+                    </div>
+                    <div class="description">
+                        <p class="attributte">Generation:</p>
+                        <p>Generation I</p>
+                    </div>
+                    <h4>Story:</h4>
+                    <p>
+                        A strange seed was planted on its back at birth. The plant sprouts and grows with this POKéMON.
+                    </p>
+                </span>        
+            </div>
+            <span id="dataFooter"></span>
         </div>
     </div>
 
