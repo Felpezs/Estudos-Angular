@@ -2,15 +2,31 @@ const pokeApi = {}
 
 function convertPokeApiDetailToPokemon(pokeDetail){
     const pokemon = new Pokemon()
+    const speciesUrl = `https://pokeapi.co/api/v2/pokemon-species/${pokeDetail.id}/`
+
+    fetch(speciesUrl)
+    .then((pokemonSpecie) => pokemonSpecie.json())
+    .then((specie)=>{
+        pokemon.story = specie.flavor_text_entries[0].flavor_text.replace('\n',' ').replace('\f',' ')
+        pokemon.generation = specie.generation.name
+        pokemon.habitat = specie.habitat.name
+    })
+    
     pokemon.number = pokeDetail.id
     pokemon.name = pokeDetail.name
 
     const types = pokeDetail.types.map((typeSlot) => typeSlot.type.name)
+    const abilities = pokeDetail.abilities.map((abilitySlot)=> abilitySlot.ability.name)
+    
     const [ type ] = types
 
+    pokemon.abilities = abilities
     pokemon.types = types
     pokemon.type = type
     pokemon.photo = pokeDetail.sprites.versions['generation-v']['black-white'].animated.front_default
+    pokemon.height = pokeDetail.height * 10 //decimeter to centimeter
+    pokemon.weight = pokeDetail.weight //Kg
+    pokemon.baseExp = pokeDetail.base_experience
 
     return pokemon
 }

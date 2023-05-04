@@ -66,7 +66,7 @@
     transition: 100ms linear;
 }
 
-nav.info li.opened{
+.navInfo li.active{
     opacity: 1;
 }
 
@@ -85,14 +85,29 @@ nav.info li.opened{
 div.description{
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .description p{
     margin: 0;
+    text-align: end;
+    text-transform: capitalize;
 }
 
 p.attributte{
     color: rgba(0,0,0,.5);
+}
+
+p.story{
+    text-align: justify;
+}
+
+div#pokemonData div.showTab{
+    display: block;
+}
+
+div#pokemonData>div{
+    display: none;
 }
 
 ::-webkit-scrollbar{
