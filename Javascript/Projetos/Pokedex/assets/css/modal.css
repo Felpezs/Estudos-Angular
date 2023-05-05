@@ -1,3 +1,11 @@
+.hpBar{
+    background-color: green;
+}
+
+.atkBar{
+    background-color: red;
+}
+
 .pokemonOverview{
     position: fixed;
     top: 50%;
@@ -103,11 +111,29 @@ p.story{
 }
 
 div#pokemonData div.showTab{
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
 }
 
-div#pokemonData>div{
+div#pokemonData > div{
     display: none;
+}
+
+div.statLine{
+    display: grid;
+    grid-template-columns: .25fr .25fr 1.5fr;
+}
+
+.statBar{
+    background-color: #ddd;
+}
+
+.statBar span{
+    height: 100%;
+    width: 75%;
+    display: block;
 }
 
 ::-webkit-scrollbar{

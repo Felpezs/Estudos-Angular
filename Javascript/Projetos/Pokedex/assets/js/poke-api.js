@@ -16,8 +16,10 @@ function convertPokeApiDetailToPokemon(pokeDetail){
     pokemon.name = pokeDetail.name
 
     const types = pokeDetail.types.map((typeSlot) => typeSlot.type.name)
-    const abilities = pokeDetail.abilities.map((abilitySlot)=> abilitySlot.ability.name)
-    
+    const abilities = pokeDetail.abilities.map((abilitySlot) => abilitySlot.ability.name)
+    const statsMap= new Map()
+    pokeDetail.stats.map((statSlot) => statsMap.set(statSlot.stat.name, statSlot.base_stat))
+
     const [ type ] = types
 
     pokemon.abilities = abilities
@@ -27,6 +29,7 @@ function convertPokeApiDetailToPokemon(pokeDetail){
     pokemon.height = pokeDetail.height * 10 //decimeter to centimeter
     pokemon.weight = pokeDetail.weight //Kg
     pokemon.baseExp = pokeDetail.base_experience
+    pokemon.stats = statsMap
 
     return pokemon
 }

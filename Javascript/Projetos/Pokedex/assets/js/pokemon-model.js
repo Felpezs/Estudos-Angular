@@ -10,4 +10,5 @@ class Pokemon{
     height;
     weight;
     baseExp;
+    stats;
 }
