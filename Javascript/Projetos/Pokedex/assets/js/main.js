@@ -23,7 +23,6 @@ function loadPokemonItens(offset, limit){
                 </div>
             `
             li.addEventListener('click', ()=>showPokemonDetails(pokemon))
-
             return li
         }))  
      })

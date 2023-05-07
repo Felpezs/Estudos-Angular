@@ -3,6 +3,7 @@ class Pokemon{
     name;
     type;
     types = [];
+    evolutionChain;
     photo;
     generation;
     habitat;

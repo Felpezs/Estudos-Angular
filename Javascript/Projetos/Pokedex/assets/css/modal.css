@@ -1,9 +1,37 @@
-.hpBar{
+.hp{
     background-color: green;
+    box-shadow: 0 0 10px green;
+    transition: width 880ms linear;
 }
 
-.atkBar{
-    background-color: red;
+.attack{
+    background-color: rgb(255, 49, 49);
+    box-shadow: 0 0 10px 	rgb(255, 49, 49);
+    transition: width 880ms linear;
+}
+
+.defense{
+    background-color: rgb(214, 107, 19);
+    box-shadow: 0 0 10px rgb(214, 107, 19);
+    transition: width 880ms linear;
+}
+
+.sp-attack{
+    background-color: rgb(173, 5, 5);
+    box-shadow: 0 0 10px rgb(173, 5, 5);
+    transition: width 880ms linear;
+}
+
+.sp-defense{
+    background-color: rgb(121, 41, 157);
+    box-shadow: 0 0 10px rgb(121, 41, 157);
+    transition: width 880ms linear;
+}
+
+.speed{
+    background-color: rgb(73, 114, 235);
+    box-shadow: 0 0 10px rgb(73, 114, 235);
+    transition: width 880ms linear;
 }
 
 .pokemonOverview{
@@ -14,8 +42,8 @@
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
-    width: 95%;
-    height: 500px;
+    width: 90%;
+    height: 600px;
 }
 
 .pokemonOverview .types{
@@ -43,7 +71,7 @@
     flex-grow: 1;
 }
 
-.pokemonOverview img{
+.head img{
     height: 120px;
 }
 
@@ -96,24 +124,24 @@ div.description{
     align-items: center;
 }
 
-.description p{
+#pokemonData p{
     margin: 0;
     text-align: end;
     text-transform: capitalize;
+    font-size: 1.07rem;
 }
 
 p.attributte{
     color: rgba(0,0,0,.5);
 }
 
-p.story{
+#about p.story{
     text-align: justify;
 }
 
 div#pokemonData div.showTab{
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     height: 100%;
 }
 
@@ -121,19 +149,47 @@ div#pokemonData > div{
     display: none;
 }
 
+div#stats{
+    justify-content: center;
+}
+
 div.statLine{
     display: grid;
-    grid-template-columns: .25fr .25fr 1.5fr;
+    grid-template-columns: minmax(0,.5fr) minmax(0,.5fr) 1fr;
+    padding: 0.5rem 0;
+    align-items: center;
+}
+
+.statLine span{
+    text-align: center;
+    text-transform: capitalize;
 }
 
 .statBar{
+    height: 1.2rem;
+    border-radius: .5rem;
     background-color: #ddd;
 }
 
 .statBar span{
-    height: 100%;
-    width: 75%;
+    height: 1.2rem;
+    border-radius: .5rem;
     display: block;
+}
+
+div#pokemonData div#evolution{
+    justify-content:start;
+    align-items: center;  
+}
+
+#evolution img{
+    height: 120px;
+    width: 120px;
+}
+
+.evolutionContainer{
+    display: flex;
+    align-items: center;
 }
 
 ::-webkit-scrollbar{

@@ -49,14 +49,41 @@ const aboutPokemon = (pokemon) => {
     `
 }
 
-const stats = (pokemon) => {
+const stats = (pokemon) => { 
+    return `<div id="stats">
+        ${pokemon.stats.map((stat) => `
+            <div class="statLine">
+                <span class="statProperty">${stat.name}</span>
+                <span class="statValue">${stat.value}</span>
+                <div class="statBar">
+                    <span style="width: ${stat.value}%" class="${stat.name}"></span>
+                </div>
+            </div>`  
+        ).join('')}
+    </div>`
+}    
 
+const evolution = (pokemon) => {
+    `
+    <div id="evolution">
+                    <div class="evolutionContainer">
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iv/platinum/1.png" alt="Bulbasaur">
+                        <p>Bulbasaur</p>
+                    </div>
+                    <div class="evolutionContainer">
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iv/platinum/2.png" alt="Ivysaur">
+                        <p>Ivysaur</p>
+                    </div>
+                    <div class="evolutionContainer">
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iv/platinum/3.png" alt="Venusaur">
+                        <p>Venusaur</p>
+                    </div>
+                </div>`
 }
 
 function showPokemonDetails(pokemon){
     body.classList.add('disable-scroll')
     modal.style.display = 'block'
-    /*
     modal.innerHTML = `
         <div class="pokemonOverview ${pokemon.type}">
             <div class="head">
@@ -76,11 +103,9 @@ function showPokemonDetails(pokemon){
             <div id="pokemonData">
                 ${aboutPokemon(pokemon)}
                 ${stats(pokemon)}
-                ${evolution(pokemon)}
             </div>
             <span id="dataFooter"></span>
         </div>`
-    */
     const tabs = document.querySelector('.navInfo ul')
     
     for(let tab of tabs.children)
