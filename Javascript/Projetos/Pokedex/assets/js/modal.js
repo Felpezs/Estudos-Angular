@@ -56,7 +56,7 @@ const stats = (pokemon) => {
                 <span class="statProperty">${stat.name}</span>
                 <span class="statValue">${stat.value}</span>
                 <div class="statBar">
-                    <span style="width: ${stat.value}%" class="${stat.name}"></span>
+                    <span style="width: ${stat.value/3}%" class="${stat.name}"></span>
                 </div>
             </div>`  
         ).join('')}
@@ -64,21 +64,16 @@ const stats = (pokemon) => {
 }    
 
 const evolution = (pokemon) => {
-    `
+    const src = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iv/platinum/'
+    return `
     <div id="evolution">
-                    <div class="evolutionContainer">
-                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iv/platinum/1.png" alt="Bulbasaur">
-                        <p>Bulbasaur</p>
-                    </div>
-                    <div class="evolutionContainer">
-                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iv/platinum/2.png" alt="Ivysaur">
-                        <p>Ivysaur</p>
-                    </div>
-                    <div class="evolutionContainer">
-                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iv/platinum/3.png" alt="Venusaur">
-                        <p>Venusaur</p>
-                    </div>
-                </div>`
+        <div class="evolutionContainer">
+            ${pokemon.evolutionChain.map((evolution) => `
+                <img src="${src+evolution.id}.png" alt="${evolution.name}">
+                <p>${evolution.name}</p>
+            `).join('')}
+        </div>
+    </div>`
 }
 
 function showPokemonDetails(pokemon){
@@ -103,6 +98,7 @@ function showPokemonDetails(pokemon){
             <div id="pokemonData">
                 ${aboutPokemon(pokemon)}
                 ${stats(pokemon)}
+                ${evolution(pokemon)}
             </div>
             <span id="dataFooter"></span>
         </div>`
