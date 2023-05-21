@@ -59,3 +59,45 @@ let tupla:[string, number, number] = ['agua', 1, 2]
  */
 
 let aniversario:Date = new Date("2023-05-19 11:03")
+
+/**
+ * Decorators
+ */
+
+function decoratorFunc(target:any){
+    console.log(target)
+}
+
+//Executada no momento de criacao da classe na memória
+@decoratorFunc
+class MyClass{}
+
+//Attribute decorator
+function minLength(length: number) {
+    return (target: any, key: string) => {
+      let _value = target[key];
+  
+      const getter = () => "[play]" + _value;
+      const setter = (value: string) => {
+        if (value.length < length) {
+          throw new Error(`Tamanho menor do que ${length}`);
+        } else {
+          _value = value;
+        }
+      };
+  
+      Object.defineProperty(target, key, {
+        get: getter,
+        set: setter,
+      });
+    };
+  }
+  
+  class Api {
+    @minLength(10)
+    name: string;
+  
+    constructor(name: string) {
+      this.name = name;
+    }
+  }
